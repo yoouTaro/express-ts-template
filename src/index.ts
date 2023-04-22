@@ -1,14 +1,15 @@
-import express, { NextFunction, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import userRouter from "./routes/user.route";
 import { AppDataSource } from "./database/data-source";
+
+const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
 AppDataSource.initialize()
   .then(() => {
     console.log(`Data Source has been initialized`);
 
     const app = express();
-    const port = Number(process.env.PORT) || 3000;
 
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: true }));
