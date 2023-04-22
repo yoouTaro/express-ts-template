@@ -1,22 +1,32 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "../entity/User";
+
+const {
+  DB_TYPE,
+  DB_HOST,
+  DB_PORT,
+  DB_NAME,
+  DB_USERNAME,
+  DB_PASSWORD,
+  DB_DEBUG,
+  DB_SSL,
+} = process.env || {};
 
 export const AppDataSource = new DataSource({
-  type: "postgres",
-  host: "ep-noisy-flower-467034.ap-southeast-1.aws.neon.tech",
-  port: 5432,
-  username: "yoouTaro",
-  password: "k0aXinf2qECU",
-  database: "neondb",
+  type: (DB_TYPE as any) || "postgres",
+  host: DB_HOST || "localhost",
+  port: DB_PORT ? parseInt(DB_PORT) : 5432,
+  username: DB_USERNAME || "postgres",
+  password: DB_PASSWORD || "postgres",
+  database: DB_NAME || "postgres",
   synchronize: true,
-  logging: false,
-  entities: ["src/entity/**/*.ts"],
+  logging: DB_DEBUG == "true",
+  entities: ["**/entity/**/*.ts"],
   migrations: [],
   subscribers: [],
   migrationsTableName: "migrations",
   ssl: { rejectUnauthorized: false },
-  extra: { ssl: true },
+  extra: { ssl: DB_SSL == "true" },
 });
 
 export default AppDataSource;
