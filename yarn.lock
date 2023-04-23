@@ -495,6 +495,13 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
+generate-express-crud-file@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/generate-express-crud-file/-/generate-express-crud-file-1.0.10.tgz#a0b51f117d376b77ac50b0bd7be1243624221fa6"
+  integrity sha512-w8FNsIu0at/gQJoOS5zpaXVrPOPu7A6w9EJuEWIt1nshVDVW4AYhbfCInMDqAvZ5PRIkUDfgQZHQfasN/uaA3w==
+  dependencies:
+    yargs "^17.7.1"
+
 get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
@@ -1213,7 +1220,7 @@ yargs@^16.0.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.6.2:
+yargs@^17.6.2, yargs@^17.7.1:
   version "17.7.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.7.1.tgz#34a77645201d1a8fc5213ace787c220eabbd0967"
   integrity sha512-cwiTb08Xuv5fqF4AovYacTFNxk62th7LKJ6BL9IGUpTJrWoU7/7WdQGTP2SjKf1dUNBGzDd28p/Yfs/GI6JrLw==
