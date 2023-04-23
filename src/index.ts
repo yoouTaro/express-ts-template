@@ -1,11 +1,12 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import userRouter from "./routes/user.route";
-import { AppDataSource } from "./database/data-source";
+import { dataSource } from "./database/data-source";
 
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 
-AppDataSource.initialize()
+dataSource
+  .initialize()
   .then(() => {
     console.log(`Data Source has been initialized`);
   })
