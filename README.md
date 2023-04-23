@@ -1,3 +1,3 @@
-1. Run `npm i` command
+1. Run `yarn` command
 2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+3. Run `yarn dev` command
