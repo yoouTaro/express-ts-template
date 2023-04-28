@@ -23,6 +23,10 @@
       "start": "ts-node -r dotenv/config src/index.ts",
       "build": "tsc",
       "typeorm": "typeorm-ts-node-commonjs",
-      "generate": "yarn generate-express-crud-file"
+      "generate": "yarn generate-express-crud-file",
+      "migration:generate": "yarn typeorm -- -d ./src/database/data-source.ts migration:generate",
+      "migration:run": "yarn typeorm migration:run -- -d ./src/database/data-source.ts",
+      "migration:create": "yarn typeorm -- migration:create",
+      "migration:revert": "yarn typeorm -- -d ./src/database/data-source.ts migration:revert"
    }
 }

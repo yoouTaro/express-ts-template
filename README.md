@@ -9,3 +9,30 @@
 ```javascript
 yarn generate -n ${name}
 ```
+___
+
+## Migration
+
+- Create:
+```javascript
+yarn typeorm -- migration:create ./src/database/migrations/${migration_name}
+```
+
+
+- Generate:
+```javascript
+yarn typeorm -- -d ./src/database/data-source.ts migration:generate ./src/database/migrations/${migration_name}
+```
+
+
+- Run:
+```javascript
+yarn typeorm migration:run -- -d ./src/database/data-source.ts
+```
+
+
+- Revert:
+```javascript
+yarn typeorm -- -d ./src/database/data-source.ts migration:revert
+```
+
