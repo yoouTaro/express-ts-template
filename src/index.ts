@@ -1,6 +1,8 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import { dataSource } from "./database/data-source";
+import http from "http";
+import socketSetup from "./socket";
 import userRouter from "./routes/user.route";
 
 const port = process.env.PORT ? parseInt(process.env.PORT) : 3000;
@@ -15,6 +17,8 @@ dataSource
   });
 
 const app = express();
+const server = http.createServer(app);
+socketSetup(server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,6 +29,6 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/user", userRouter);
 
-app.listen(port, "0.0.0.0", () => {
+server.listen(port, "0.0.0.0", () => {
   console.log(`App listening at http://localhost:${port}`);
 });
