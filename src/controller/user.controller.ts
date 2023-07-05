@@ -1,8 +1,12 @@
 import { Request, Response, NextFunction } from "express";
-import userService from "../services/user.service";
+import UserService from "../services/user.service";
 
-async function get(req: Request, res: Response, next: NextFunction) {
-  res.json(await userService.get());
+export class UserController {
+  constructor(public userService: UserService) {}
+
+  async get(req: Request, res: Response, next: NextFunction) {
+    res.json(await this.userService.get());
+  }
 }
 
-export default { get };
+export default new UserController(new UserService());
