@@ -1,5 +1,5 @@
-async function get() {
-  return "Get All Users";
+export default class UserService {
+  async get() {
+    return "Get All Users";
+  }
 }
-
-export default { get };
